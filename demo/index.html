@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>MooCss - a MooTools Css Stylesheet Writer</title>
+
+<link  href="style.css" rel="stylesheet" type="text/css" media="screen" />
+
+<script src="mootools-1.2.4-core.js" type="text/javascript"></script>
+<script src="../Source/MooCss.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+<!-- 
+
+window.addEvent('domready',function(){
+
+	var style = new MooCss({
+//		autoWrite: true,
+		pretty: true
+	}).setStyle(new MooCssStyle('.foo',{
+			background: '#FF9900',
+			color: 'white',
+			padding: 20
+		}))
+		.setStyle(new MooCssStyle('pre',{
+			border: '1px solid black'
+		}))
+		.setStyle({
+			'background': '#EEE'
+		},'body')
+		.write();
+		
+	document.addEvent('click',function(){
+		style.setStyle(style.getStyle('body').set('font-weight','bold')).write();
+	});
+	
+});
+	
+// -->	
+</script>
+
+
+</head>
+<body>
+
+<h1>MooCss - a MooTools Css Stylesheet Writer</h1>
+
+
+<div class="foo">Hello</div>
+
+
+<h2>Options</h2>
+
+<p>
+	In every last parameter you can set the following options.
+</p>
+
+<pre>
+{
+	size: {
+		width: 300,
+		height: 100
+	},
+	offset: {
+		x: 0,
+		y: -100
+	},
+	title: null,
+	scroll: true,
+	useEscKey: true,
+	disposeOnClose: true,
+	closeButton: true,
+	focus: true,
+	fx: {
+		type: 'tween',
+		open: 1,
+		close: 0,
+		options: {
+			property: 'opacity',
+			duration: 400
+		}
+	},
+	okText: 'Ok', // Only MooDialog.Alert, MooDialog.Confirm,MooDialog.Error and MooDialog.Prompt
+	cancelText: 'Cancel' // Only MooDialog.Confirm /*,
+	onOpen: $empty,
+	onClose: $empty,
+	onShow: $empty,
+	onHide: $empty*/
+}</pre>
+
+<h2>Docs</h2>
+
+<a href="http://github.com/arian/MooDialog/blob/master/README.md">Check the docs on Github.com</a>
+
+<h2>Download</h2>
+
+MooTools <a href="http://mootools.net/forge/p/moodialog">Forge</a>
+
+
+</body>
+</html>
