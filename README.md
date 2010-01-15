@@ -243,3 +243,6 @@ Requirements
 
 * [MooTools Core 1.2.4](http://mootools.net/core)
 
+Also See
+--------
+* [Aaron Newtons StyleWriter](http://www.clientcide.com/docs/UI/StyleWriter)
