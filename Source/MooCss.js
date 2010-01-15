@@ -59,7 +59,8 @@ var MooCss = new Class({
 		if(this.options.pretty){
 			css = css.replace(/\}/g,"\n}\n\n")
 				.replace(/\{/g," {\n\t")
-				.replace(/; /g,";\n\t");
+				.replace(/; /g,';')
+				.replace(/;/g,";\n\t");
 		}
 		try {
 			if (Browser.Engine.trident) this.style.styleSheet.cssText = css;

@@ -16,9 +16,12 @@
 window.addEvent('domready',function(){
 
 	var style = new MooCss({
-//		autoWrite: true,
-		pretty: true
-	}).setStyle(new MooCssStyle('.foo',{
+		pretty: true,
+		onWrite: function(el,css){
+			document.id('genCss').set('text',css);
+		}
+	})
+		.setStyle(new MooCssStyle('.foo',{
 			background: '#FF9900',
 			color: 'white',
 			padding: 20
@@ -26,13 +29,10 @@ window.addEvent('domready',function(){
 		.setStyle(new MooCssStyle('pre',{
 			border: '1px solid black'
 		}))
-		.setStyle({
-			'background': '#EEE'
-		},'body')
 		.write();
 		
 	document.addEvent('click',function(){
-		style.setStyle(style.getStyle('body').set('font-weight','bold')).write();
+		style.setStyle({'font-weight':'bold'},'body').write();
 	});
 	
 });
@@ -46,56 +46,39 @@ window.addEvent('domready',function(){
 
 <h1>MooCss - a MooTools Css Stylesheet Writer</h1>
 
-
-<div class="foo">Hello</div>
-
-
-<h2>Options</h2>
-
-<p>
-	In every last parameter you can set the following options.
+<p class="foo">
+	This element is styled by Javascript
 </p>
 
-<pre>
-{
-	size: {
-		width: 300,
-		height: 100
-	},
-	offset: {
-		x: 0,
-		y: -100
-	},
-	title: null,
-	scroll: true,
-	useEscKey: true,
-	disposeOnClose: true,
-	closeButton: true,
-	focus: true,
-	fx: {
-		type: 'tween',
-		open: 1,
-		close: 0,
-		options: {
-			property: 'opacity',
-			duration: 400
-		}
-	},
-	okText: 'Ok', // Only MooDialog.Alert, MooDialog.Confirm,MooDialog.Error and MooDialog.Prompt
-	cancelText: 'Cancel' // Only MooDialog.Confirm /*,
-	onOpen: $empty,
-	onClose: $empty,
-	onShow: $empty,
-	onHide: $empty*/
-}</pre>
+<p>
+	When you click anywhere, the CSS of <code>body</code> will change.
+</p>
+
+<p>
+	You can create a new class <code>.example</code> and set it&#39;s css. Afther that you can 
+	add new Elements to the DOM with this class, without aplying the styles to the element itself.
+</p>
+
+<pre>var style = new MooCss()
+	.setStyle(new MooCssStyle('.example',{
+		background: '#FF9900',
+		color: 'white',
+		padding: 20
+	}))
+	.write();
+	
+new Element('div',{'class': 'example'});</pre>
+
+<h3>Generated CSS</h3>
+<pre id="genCss"></pre>
 
 <h2>Docs</h2>
 
-<a href="http://github.com/arian/MooDialog/blob/master/README.md">Check the docs on Github.com</a>
+<a href="http://github.com/arian/MooCss/blob/master/README.md">Check the docs on Github.com</a>
 
 <h2>Download</h2>
 
-MooTools <a href="http://mootools.net/forge/p/moodialog">Forge</a>
+MooTools <a href="http://mootools.net/forge/p/moocss">Forge</a>
 
 
 </body>

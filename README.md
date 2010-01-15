@@ -17,6 +17,28 @@ There are two classes, MooCss and MooCssStyle. First you create a style for a se
 styles. Secondly you add this MooCssStyle instance to the MooCss instance and call the MooCss.write method to actually write
 the CSS to your document head.
 
+### Example ###
+
+	#JS
+	var style = new MooCss()
+		.setStyle(new MooCssStyle('.foo',{
+			background: '#FF9900',
+			color: 'white',
+			padding: 20
+		}))
+		.setStyle(new MooCssStyle('pre',{
+			border: '1px solid black'
+		}))
+		.setStyle({
+			'background': '#EEE'
+		},'body')
+		.write();
+		
+	document.addEvent('click',function(){
+		style.setStyle(style.getStyle('body').set('font-weight','bold')).write();
+	});
+
+
 ## Class: MooCss ##
 
 ### MooCss method: constructor ###
