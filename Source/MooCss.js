@@ -62,11 +62,11 @@ var MooCss = new Class({
 				.replace(/; /g,';')
 				.replace(/;/g,";\n\t");
 		}
-		try {
+		$try(function(){
 			if (Browser.Engine.trident) this.style.styleSheet.cssText = css;
 			else this.style.set('text', css);
 			this.fireEvent('write',[this.style,css]);
-		}catch(e){}
+		}.bind(this));
 		return this;
 	},
 	
