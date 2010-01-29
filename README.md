@@ -44,7 +44,7 @@ the CSS to your document head.
 ### MooCss method: constructor ###
 
 	#JS
-	new MooCss(options);
+	new MooCss([options]);
 
 #### Arguments ####
 1. options - (*object*,optional) The MooCss Options. See below
