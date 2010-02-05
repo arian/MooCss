@@ -47,6 +47,21 @@ var MooCss = new Class({
 		return this;
 	},
 	
+	setStyles: function(styles){
+		switch($type(styles)){
+			case 'array': 
+				styles.each(function(style){
+					this.setStyle(style)
+				}.bind(this));
+			break;
+			case 'object': 
+				$each(styles,function(style,sel){
+					this.setStyle(style,sel)
+				}.bind(this));
+			break;
+		}
+	},
+	
 	getStyle: function(selector){
 		return this.styles.get(selector);
 	},
